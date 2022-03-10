@@ -10,13 +10,14 @@ public class Player_controller : MonoBehaviour
 
     void Start()
     {
-        verticalInput = Input.GetAxis("Vertical");
+        
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
     
     void Update()
     {
+        verticalInput = Input.GetAxis("Vertical");
         playerRigidbody.AddForce(Vector3.right * playerSpeed * verticalInput);
     }
 }
