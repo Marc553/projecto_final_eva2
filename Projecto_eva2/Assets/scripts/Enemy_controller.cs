@@ -17,8 +17,19 @@ public class Enemy_controller : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        enemyRigidbody.AddForce(direction * speed);
+        enemyRigidbody.AddForce(direction * speed);*/
+
     }
+
+    private void OnTriggerEnter(Collider otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("Projectil"))
+        {
+            Destroy(gameObject);
+            Destroy(otherCollider.gameObject);
+        }
+    }
+
 }
