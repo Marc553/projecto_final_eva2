@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: -2683457500485669580}
   - component: {fileID: 316591006210307398}
   m_Layer: 0
-  m_Name: enemy_easy
+  m_Name: Enemy_easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5391910317018997619}
   m_LocalRotation: {x: 0.6527772, y: 0.6553381, z: -0.27461502, w: 0.26267946}
-  m_LocalPosition: {x: 0.216, y: 0.353, z: -0.002}
+  m_LocalPosition: {x: -0.32, y: 0.353, z: -0.002}
   m_LocalScale: {x: 0.13409957, y: 0.53632706, z: 0.12743239}
   m_Children: []
   m_Father: {fileID: 3318490250127003460}

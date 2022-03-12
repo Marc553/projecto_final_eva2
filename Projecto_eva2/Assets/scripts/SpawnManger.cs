@@ -3,43 +3,83 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManger : MonoBehaviour
-{
+{/*
     public GameObject[] objectsPrefabs; 
     private Vector3 SpawnPosition;
+    private int randomPosition;
 
     private int valor0 = 0;
-    private int valor5 = 5;
+    private int valor3 = 3;
     private float giro = 0;
     private float giro90 = 90;
     private float giro180 = 180;
-    private float giro270 = 270;
-    private float giro360 = 360;
+    private float giroMenus90 = -90;
+   
     private float valorPlusX = 37;
     private float valorMInusX = -37;
     private float valorPlusZ = 34.6f;
     private float valorMinusZ = -34.6f;
 
-    private float startTime = 2;
-    private float repeatRate = 1.5f;
+    private int enemiesLeft;
+    private int enemiesPerWave = 1;
+  
 
     private int randomIndex;
 
 
     void Start()
     {
-        InvokeRepeating("SpawnObject", startTime, repeatRate);
+        SpwamEnemyWave(enemiesPerWave);
     }
-    public Vector3 RandomSpawnPosition()
+
+    private void Update()
     {
+        enemiesLeft = FindObjectOfType<Enemy_controller>().Length;
+        if(enemiesLeft <= valor0)
+        {
+            enemiesPerWave++;
+            SpwamEnemyWave(enemiesPerWave);
 
-        return new Vector3(valorPlusX, 0, valorPlusZ);
+        }
     }
 
-    public void SpawnObject()
+    private void SpwamEnemyWave(int totalenemies)
+    {
+        for(int i = 0; i < totalenemies; i++)
+        {
+            SpawnEnemy();
+        }
+    }
+
+    public void SpawnEnemy()
     {
         randomIndex = Random.Range(0, objectsPrefabs.Length);
-        Quaternion rotation = Quaternion.Euler(transform.rotation.x, giro, transform.rotation.z);
-        Instantiate(objectsPrefabs[randomIndex],SpawnPosition, rotation);
-    }
+        randomPosition = Random.Range(valor0, valor3);
+
+        if (randomPosition == valor0)
+        {
+             SpawnPosition = new Vector3(valorPlusX, valor0, valor0);
+            Quaternion rotation = Quaternion.Euler(transform.rotation.x, giro, transform.rotation.z);
+            Instantiate(objectsPrefabs[randomIndex], SpawnPosition, rotation);
+        }
+        if (randomPosition == 1)
+        {
+            SpawnPosition = new Vector3(valorMInusX, valor0, valor0);
+            Quaternion rotation = Quaternion.Euler(transform.rotation.x, giro180, transform.rotation.z);
+            Instantiate(objectsPrefabs[randomIndex], SpawnPosition, rotation);
+        }
+        if (randomPosition == 2)
+        {
+            SpawnPosition = new Vector3(valor0, valor0, valorPlusZ);
+            Quaternion rotation = Quaternion.Euler(transform.rotation.x, giroMenus90, transform.rotation.z);
+            Instantiate(objectsPrefabs[randomIndex], SpawnPosition, rotation);
+        }
+        if (randomPosition == valor3)
+        {
+            SpawnPosition = new Vector3(valor0, valor0, valorMinusZ);
+            Quaternion rotation = Quaternion.Euler(transform.rotation.x, giro90, transform.rotation.z);
+            Instantiate(objectsPrefabs[randomIndex], SpawnPosition, rotation);
+        }
+    }*/
 
 }
