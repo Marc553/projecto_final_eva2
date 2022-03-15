@@ -8,6 +8,12 @@ public class disparo : MonoBehaviour
     
     public float cooldown = 2;
     public float nextFireTime = 0;
+    //private Animator playerAnimator;
+
+    private void Start()
+    {
+        //playerAnimator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -18,11 +24,9 @@ public class disparo : MonoBehaviour
             {
               Instantiate(projectilPrefab, transform.position, transform.rotation);
                 nextFireTime = Time.time + cooldown;
+                //playerAnimator.SetTrigger("disparo");
             }
-
         }
-        
-
     }
 
 
