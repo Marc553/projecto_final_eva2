@@ -7,6 +7,7 @@ public class Enemy_controller : MonoBehaviour
     private Rigidbody enemyRigidbody;
     private GameObject player;
     [SerializeField] private float speed = 5f;
+    private int limY = -3;
     
 
     void Start()
@@ -20,6 +21,11 @@ public class Enemy_controller : MonoBehaviour
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(direction * speed);
+
+        if(transform.position.y <= limY)
+        {
+            Destroy(gameObject);
+        }
 
     }
 

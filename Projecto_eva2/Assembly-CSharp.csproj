@@ -58,6 +58,7 @@
     <Compile Include="Assets\scripts\disparo.cs" />
     <Compile Include="Assets\scripts\SpawnManger.cs" />
     <Compile Include="Assets\scripts\Enemy_controller.cs" />
+    <Compile Include="Assets\scripts\rotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectil
+  - suministros
+  - enemy_easy
+  - enemy_medium
+  - enemy_hard
   layers:
   - Default
   - TransparentFX

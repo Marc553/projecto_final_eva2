@@ -10,6 +10,8 @@ public class Player_controller : MonoBehaviour
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
 
+    public int vida = 200;
+
     void Start()
     {
         
@@ -21,8 +23,8 @@ public class Player_controller : MonoBehaviour
     void Update()
     {
         float verticalInput = Input.GetAxis("Vertical");
-        playerRigidbody.AddForce(transform.right * playerSpeed * verticalInput);
-        
+        //playerRigidbody.AddForce(transform.right * playerSpeed * verticalInput);
+        transform.Translate(transform.right * playerSpeed * verticalInput * Time.deltaTime);
 
         float horizontalInput = Input.GetAxis("Horizontal");
        transform.Rotate(Vector3.up * speed * Time.deltaTime * horizontalInput);
@@ -31,5 +33,42 @@ public class Player_controller : MonoBehaviour
         {
             playerAnimator.SetTrigger("disparo");
         }
+
+        if(vida <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("enemy_easy"))
+        {
+            vida -= 10;
+            Destroy(collision.gameObject);
+        }
+        
+        if(collision.gameObject.CompareTag("enemy_medium"))
+        {
+            vida -= 15;
+            Destroy(collision.gameObject);
+        }
+        
+        if(collision.gameObject.CompareTag("enemy_hard"))
+        {
+            vida -= 20;
+            Destroy(collision.gameObject);
+        }
+    }
+    private void OnTriggerEnter(Collider othercollider)
+    {
+        if(othercollider.gameObject.CompareTag("suministros"))
+        {
+            vida += 25;
+            Debug.Log($"{vida}");
+            Destroy(othercollider.gameObject);
+        }
+    }
+
 }

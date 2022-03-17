@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManger : MonoBehaviour
 {
     public GameObject[] objectsPrefabs; 
+    public GameObject powerUpPrefab; 
     public GameObject[] way_points; 
     public GameObject[] particle_points; 
     private GameObject SpawnPosition;
@@ -16,6 +17,8 @@ public class SpawnManger : MonoBehaviour
     private int randomIndex;
     private int randomPosition;
     private int randomParticle;
+    private float spawnPositionRange = 30;
+    
 
     public ParticleSystem warning;
 
@@ -31,7 +34,8 @@ public class SpawnManger : MonoBehaviour
         {
             enemiesPerWave++;
             SpwamEnemyWave(enemiesPerWave);
-
+            Instantiate(powerUpPrefab, RandomSpawnPostion(),
+               powerUpPrefab.transform.rotation);
         }
     }
 
@@ -53,8 +57,13 @@ public class SpawnManger : MonoBehaviour
         SpawnParticle = particle_points[randomPosition];
         Instantiate(objectsPrefabs[randomIndex], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
         Instantiate(warning, SpawnParticle.transform.position, SpawnParticle.transform.rotation);
-
-        
     }
 
+    public Vector3 RandomSpawnPostion()
+    {
+        float xRandom = Random.Range(-spawnPositionRange, spawnPositionRange);
+        float zRandom = Random.Range(-spawnPositionRange, spawnPositionRange);
+        
+        return new Vector3(xRandom, 0, zRandom);
+    }
 }
