@@ -24,10 +24,10 @@ public class Player_controller : MonoBehaviour
     {
         float verticalInput = Input.GetAxis("Vertical");
         //playerRigidbody.AddForce(transform.right * playerSpeed * verticalInput);
-        transform.Translate(transform.right * playerSpeed * verticalInput * Time.deltaTime);
+        transform.Translate(Vector3.right * playerSpeed * verticalInput * Time.deltaTime);
 
         float horizontalInput = Input.GetAxis("Horizontal");
-       transform.Rotate(Vector3.up * speed * Time.deltaTime * horizontalInput);
+       transform.Rotate(transform.up * speed * Time.deltaTime * horizontalInput);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

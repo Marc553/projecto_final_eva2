@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class rotate : MonoBehaviour
 {
-    
+    public float spinSpeed;
+
     void Update()
     {
-        transform.ro
+        transform.Rotate(Vector3.up, spinSpeed * Time.deltaTime);
     }
 }
