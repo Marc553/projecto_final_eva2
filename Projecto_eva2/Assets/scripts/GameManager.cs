@@ -36,43 +36,31 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        enemiesLeft = FindObjectsOfType<Enemy_controller>().Length;
-        if (enemiesLeft <= 0)
-        {
-            enemiesPerWave++;
-            SpwamEnemyWave(enemiesPerWave);
-            Instantiate(powerUpPrefab, RandomSpawnPostion(),
-               powerUpPrefab.transform.rotation);
-        }
+            enemiesLeft = FindObjectsOfType<Enemy_controller>().Length;
+            if (enemiesLeft <= 0)
+            {
+             enemiesPerWave++;
+             SpwamEnemyWave(enemiesPerWave);
+             Instantiate(powerUpPrefab, RandomSpawnPostion(), powerUpPrefab.transform.rotation);
+            }
     }
 
     private void SpwamEnemyWave(int totalenemies)
-    {
-        
-        if(!isGameOver)
-        {
-            for (int i = 0; i < totalenemies; i++)
-            {
-             SpawnEnemy();
-            }
-
-        }
-
-            
-        
-        
+    { 
+       for (int i = 0; i < totalenemies; i++)
+       {
+         SpawnEnemy();
+       }
     }
 
     public void SpawnEnemy()
     {
-        randomIndex = Random.Range(0, objectsPrefabs.Length);
-        randomPosition = Random.Range(0, way_points.Length);
-
-
-        SpawnPosition = way_points[randomPosition];
-        SpawnParticle = particle_points[randomPosition];
-        Instantiate(objectsPrefabs[randomIndex], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
-        Instantiate(warning, SpawnParticle.transform.position, SpawnParticle.transform.rotation);
+         randomIndex = Random.Range(0, objectsPrefabs.Length);
+         randomPosition = Random.Range(0, way_points.Length);
+         SpawnPosition = way_points[randomPosition];
+         SpawnParticle = particle_points[randomPosition];
+         Instantiate(objectsPrefabs[randomIndex], SpawnPosition.transform.position, SpawnPosition.transform.rotation);
+        Instantiate(warning, SpawnParticle.transform.position, SpawnParticle.transform.rotation);   
     }
 
     public Vector3 RandomSpawnPostion()
@@ -82,6 +70,7 @@ public class GameManager : MonoBehaviour
 
         return new Vector3(xRandom, 0, zRandom);
     }
+
     public void GameOver()
     {
         isGameOver = true;
@@ -91,17 +80,13 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
-
     }
 
-    public void StartGame(int difficulty)
+    public void StartGame()
     {
         mainMenuPanel.SetActive(false);
-
         isGameOver = false;
         gameOverPanel.SetActive(false);
         SpwamEnemyWave(enemiesPerWave);
-
-
     }
 }

@@ -11,17 +11,19 @@ public class Player_controller : MonoBehaviour
     private Animator playerAnimator;
 
     public int vida = 200;
+    private GameManager gameManagerScript;
 
     void Start()
     {
-        
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
+        gameManagerScript = FindObjectOfType<GameManager>();
     }
 
     
     void Update()
     {
+        
         float verticalInput = Input.GetAxis("Vertical");
         //playerRigidbody.AddForce(transform.right * playerSpeed * verticalInput);
         transform.Translate(Vector3.right * playerSpeed * verticalInput * Time.deltaTime);
@@ -37,6 +39,8 @@ public class Player_controller : MonoBehaviour
         if(vida <= 0)
         {
             Destroy(gameObject);
+            gameManagerScript.GameOver();
+
         }
         
     }
