@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Move_forward : MonoBehaviour
 {
-    //La velocidad que alcanzará 
-    public float Speed = 5f;
-    public float limX = 38.46f;
-    public float limMinusX = -38.46f;
-    
-    public float limZ = 39.548f;
-    public float limMinusZ = -39.548f;
+    //velocidad de movimiento
+    private float Speed = 20f;
 
+    //limites de la bala
+    private float limX = 38.46f;
+    private float limMinusX = -38.46f;
+    private float limZ = 39.548f;
+    private float limMinusZ = -39.548f;
 
     void Update()
     {
