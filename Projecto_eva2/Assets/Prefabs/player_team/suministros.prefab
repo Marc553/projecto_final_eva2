@@ -819,12 +819,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8009005975552213682}
-  - component: {fileID: 2736992463302812953}
   - component: {fileID: 3655304988882831182}
   - component: {fileID: -8124098659107181239}
   m_Layer: 0
   m_Name: suministros
-  m_TagString: Untagged
+  m_TagString: suministros
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,19 +861,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2736992463302812953
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009005975552213684}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.50077486, z: 1}
-  m_Center: {x: 0, y: 0.24961257, z: 0.000000014901161}
 --- !u!65 &3655304988882831182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -900,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2273e5b251c354ea07f95c8db3e5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spinSpeed: 50
 --- !u!1 &8009005975616954127
 GameObject:
   m_ObjectHideFlags: 0
